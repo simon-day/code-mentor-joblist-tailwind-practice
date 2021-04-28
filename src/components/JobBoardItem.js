@@ -34,7 +34,7 @@ const JobBoardItem = ({clickTagHandler, job: {
       </div>
 
       <div className="flex flex-wrap items-center mt-4 mx-4 pt-4 border-t border-gray-200 border-solid md:ml-auto md:border-0 md:pt-0 md:mt-0 md:justify-end"> 
-        {tags ? tags.map(tag => <span key={tag} onClick={() => clickTagHandler(tag)} className="bg-teal-100 p-2 mr-4 mb-4 rounded text-teal-500 font-semibold md:mb-0 ">{tag}</span> ) : null}
+        {tags ? tags.map(tag => <span key={tag} onClick={() => clickTagHandler(tag)} className="bg-teal-100 p-2 mr-4 mb-4 rounded cursor-pointer text-teal-500 font-semibold md:mb-0 ">{tag}</span> ) : null}
       </div>
     </div>
   );
