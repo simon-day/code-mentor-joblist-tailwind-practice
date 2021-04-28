@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import JobBoardItem from "./components/JobBoardItem";
+import data from "./data/data.json";
 
 function App() {
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    // ADD API LATER
+    setJobs(data);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {jobs.length === 0 ? (
+        <p>Fetching...</p>
+      ) : (
+        jobs.map((job) => <JobBoardItem key={job.id} job={job} />)
+      )}
     </div>
   );
 }
