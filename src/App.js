@@ -5,16 +5,16 @@ import data from "./data/data.json";
 function App() {
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState(jobs);
+  const [searchText, setSearchText] = useState("");
   const [filters, setFilters] = useState([]);
 
   useEffect(() => {
-    // ADD API LATER
     setJobs(data);
     setFilteredJobs(data);
   }, []);
 
   useEffect(() => {
-    if (filters.length === 0) {
+    if (filters.length === 0 && searchText === "") {
       setFilteredJobs(data);
       return;
     }
@@ -22,12 +22,15 @@ function App() {
     let jobsCopy = [
       ...jobs.filter((job) => {
         const tags = [...job.tools, ...job.languages, job.role, job.level];
-        return filters.every((filter) => tags.includes(filter));
+        return (
+          filters.every((filter) => tags.includes(filter)) &&
+          job.position.includes(searchText)
+        );
       }),
     ];
 
     setFilteredJobs(jobsCopy);
-  }, [filters, jobs]);
+  }, [filters, jobs, searchText]);
 
   const clickTagHandler = (tag) => {
     if (filters.some((flt) => flt === tag)) return;
@@ -76,6 +79,19 @@ function App() {
             </button>
           </div>
         )}
+        <div className="bg-white shadow p-4 flex mx-10 rounded">
+          <span class="w-auto flex justify-end items-center text-gray-500 p-2">
+            <i class="material-icons text-3xl">search</i>
+          </span>
+          <span className=" flex justify-end items-center text-gray-500 "></span>
+          <input
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            className="w-full rounded p-1 outline-none"
+            type="text"
+            placeholder="Search jobs, Example: 'Fullstack Developer'"
+          />
+        </div>
         {jobs.length === 0 ? (
           <p>Fetching...</p>
         ) : (

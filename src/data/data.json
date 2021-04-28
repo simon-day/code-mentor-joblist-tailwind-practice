@@ -138,7 +138,7 @@
     "id": 8,
     "company": "Insure",
     "logo": "/images/insure.svg",
-    "new": false,
+    "new": true,
     "featured": false,
     "position": "Junior Frontend Developer",
     "role": "Frontend",
@@ -192,6 +192,28 @@
     "tools": [
       "React",
       "Sass"
+    ]
+  },
+  {
+    "id": 11,
+    "company": "Shortly",
+    "logo": "/images/shortly.svg",
+    "new": true,
+    "featured": false,
+    "position": "Fullstack Dev",
+    "role": "Fullstack",
+    "level": "Midweight",
+    "postedAt": "1mo ago",
+    "contract": "Full Time",
+    "location": "London, UK",
+    "languages": [
+      "TypeScript",
+      "Python"
+    ],
+    "tools": [
+      "React",
+      "Sass",
+      "CSS"
     ]
   }
 ]
