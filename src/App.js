@@ -24,7 +24,7 @@ function App() {
         const tags = [...job.tools, ...job.languages, job.role, job.level];
         return (
           filters.every((filter) => tags.includes(filter)) &&
-          job.position.includes(searchText)
+          job.position.toLowerCase().includes(searchText.toLowerCase())
         );
       }),
     ];
