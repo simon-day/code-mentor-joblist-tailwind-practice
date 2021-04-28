@@ -1,6 +1,6 @@
 import React from "react";
 
-const JobBoardItem = ({job: {
+const JobBoardItem = ({clickTagHandler, job: {
   logo, 
   company, 
   location, 
@@ -17,9 +17,9 @@ const JobBoardItem = ({job: {
     const tags = [role, level, ...languages, ...tools]
 
   return (
-    <div className={`flex m-10 my-16 flex-col bg-white shadow-md p-6 rounded ${featured && 'border-l-4 border-teal-500'} sm:flex-row sm:my-4`}>
+    <div className={`flex m-10 my-16 flex-col bg-white shadow-md p-6 rounded ${featured && 'border-l-4 border-teal-500'} md:flex-row md:my-4`}>
       <div>
-        <img className="-mt-16 mb-4 w-20 h-20  sm:h-24 sm:w-24 sm:object-contain sm:my-0" src={`../${logo}`} alt={company}/>
+        <img  className="-mt-16 mb-4 w-20 h-20  md:h-24 md:w-24 md:object-contain md:my-0" src={`../${logo}`} alt={company}/>
       </div>
 
       <div className="flex flex-col justify-between ml-4">
@@ -33,8 +33,8 @@ const JobBoardItem = ({job: {
         </p>
       </div>
 
-      <div className="flex flex-wrap items-center mt-4 mx-4 pt-4 border-t border-gray-200 border-solid sm:ml-auto sm:border-0 sm:pt-0 sm:mt-0 sm:justify-end"> 
-        {tags ? tags.map(tag => <span className="bg-teal-100 p-2 mr-4 mb-4 rounded text-teal-500 font-semibold md:mb-0 ">{tag}</span> ) : null}
+      <div className="flex flex-wrap items-center mt-4 mx-4 pt-4 border-t border-gray-200 border-solid md:ml-auto md:border-0 md:pt-0 md:mt-0 md:justify-end"> 
+        {tags ? tags.map(tag => <span key={tag} onClick={() => clickTagHandler(tag)} className="bg-teal-100 p-2 mr-4 mb-4 rounded text-teal-500 font-semibold md:mb-0 ">{tag}</span> ) : null}
       </div>
     </div>
   );
