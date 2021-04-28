@@ -17,7 +17,7 @@ const JobBoardItem = ({clickTagHandler, job: {
     const tags = [role, level, ...languages, ...tools]
 
   return (
-    <div className={`flex m-10 my-16 flex-col bg-white shadow-md p-6 rounded ${featured && 'border-l-4 border-teal-500'} md:flex-row md:my-4`}>
+    <div className={`flex m-10 my-16 flex-col bg-white shadow-md p-6 rounded ${featured && 'border-l-4 border-teal-500'} md:flex-row md:my-6`}>
       <div>
         <img  className="-mt-16 mb-4 w-20 h-20  md:h-24 md:w-24 md:object-contain md:my-0" src={`../${logo}`} alt={company}/>
       </div>

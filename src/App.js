@@ -53,7 +53,7 @@ function App() {
       </header>
       <div className="container m-auto">
         {filters.length > 0 && (
-          <div className="bg-white shadow-md flex flex-wrap my-16 mx-10 p-6 z-50">
+          <div className="bg-white shadow-md flex flex-wrap my-16 mx-10 p-6 z-50 -mt-24 z-10 relative">
             {filters.map((filter) => (
               <span
                 className="cursor-pointer mr-1 my-3"
